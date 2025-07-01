@@ -60,8 +60,9 @@ def run_manish():
         talk("Playing on YouTube 🎶")
         pywhatkit.playonyt(song)
     elif "what's the time" in command:
-        time = datetime.datetime.now().strftime('%I:%M %p')
-        talk(f"It’s {time} ⏰")
+        ist = pytz.timezone('Asia/Kolkata')
+        time = datetime.datetime.now(ist).strftime('%I:%M %p')
+        talk(f"The time in India is {time} 🕰")
     elif "who is manish codes" in command or "who is manish_codes" in command:
         info = (
             "Manish, known as manish_codes on Instagram, is a coding content creator. "
@@ -75,8 +76,26 @@ def run_manish():
             talk(info)
         except:
             talk("Sorry, I couldn’t find information about that person.")
-    elif "joke" in command:
-        talk(pyjokes.get_joke())
+     elif "joke" in command:
+        joke_type = random.choice(['text', 'custom'])
+
+        if joke_type == 'text':
+            joke = pyjokes.get_joke()
+            talk(joke)
+        else:
+            jokes = [
+                "Why don’t scientists trust atoms? Because they make up everything!",
+                "Why did the developer go broke? Because he used up all his cache!",
+                "I told my laptop it was running slow... it started jogging.",
+                "Parallel lines have so much in common. It’s a shame they’ll never meet.",
+                "Debugging: where you fix one bug and create five more. Welcome to coding!"
+            ]
+            talk(random.choice(jokes))
+
+        
+        sunil_search_url = "https://www.youtube.com/results?search_query=sunil+telugu+comedy+scenes"
+        talk("Want more fun? Watch Sunil's comedy here 😂:")
+        talk(sunil_search_url)
     elif "open chrome" in command:
         chrome_path = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
         if os.path.exists(chrome_path):
