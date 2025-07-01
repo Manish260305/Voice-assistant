@@ -1,4 +1,4 @@
-# 🎙️ Manish Voice Assistant
+# 🎙️ Voice Assistant
 
 A voice-controlled desktop assistant built in Python — it can listen to you, respond back, and perform cool tasks like opening apps, telling time, playing music, and more.
 
